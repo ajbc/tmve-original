@@ -1,0 +1,3 @@
+template: BasicBrowser
+database:  demo/1k_demo_db
+title: Wikipedia

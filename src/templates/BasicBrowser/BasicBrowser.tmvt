@@ -1,0 +1,4 @@
+# template requirements
+html-strings: title
+#TODO: add author, author's website, etc. into html string reqs
+html-inserts: nav-bar, topic-table, topic-graph, topic-terms-column, topic-docs-column, topic-topics-column, doc-content, doc-topics-column, doc-docs-column, topic-pie-array, term-pie-array, term-related-terms-column, term-related-docs-column, term-related-topics-column, term-list, term-graph, topic-presence-graph, term-hidden-list, doc-graph

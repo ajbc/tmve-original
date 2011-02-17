@@ -1,0 +1,46 @@
+<html> 
+<head> 
+<title>TMVE 0.1</title> 
+<link href="readme.css" rel="stylesheet" type="text/css"> 
+</head> 
+ 
+<body> 
+<h1>TMVE 0.1</h1> 
+<h2>topic model visualization engine<h2> 
+ 
+<hr noshade> 
+ 
+<h3>Demo</h3> 
+<h4>a browser of 100K Wikipedia articles</h4> 
+<p><a href="http://www.sccs.swarthmore.edu/users/08/ajb/tmve/wiki100k/browse/topic-list.html">This browser</a> was produced by using the results of running <a href="http://www.cs.princeton.edu/~blei/lda-c/">David Blei's LDA-C</a> on 100,000 Wikipedia articles to find 50 topics.</p>  
+ 
+<hr noshade> 
+ 
+<h3>Tutorial</h3> 
+<h4>to produce a browser similar to the demo above</h4> 
+<p>First, download build <a href="http://www.cs.princeton.edu/~blei/lda-c/">LDA-C</a> and run it on a dataset.  For the above demo, the command looked something like:</p> 
+<p class="code">./lda set 1/50 50 settings.txt wiki/100K/word_count.dat seeded wiki-100k-lda</p> 
+<p>Next, the LDA data will need to be processed and put into a database; for this purpose, use the database generator provided in the <em>lib</em> folder.  Again, for the demo, the command to run the generator would be as follows.</p> 
+<p class="code">python generate_db.py 100k_wiki_db wiki/100K/word_count.dat wiki-100k-lda/final.beta wiki-100k-lda/final.gamma wiki/100K/vocab.dat wiki/100K/dmap.dat</p> 
+<p>This can take a while for large datasets.  As a short-cut, a demo 1k database is included in the <em>demo</em> folder, entitled <em>1k_demo_db</em>.</p> 
+<p>Finally, TMVE needs to be run with a project file, which specifies what database and template to use.  Templates control how the data is displayed; in this case, a basic browser is produced.  The included project file <em>wiki_project_demo.tmv</em> is set up to run with the demo database.</p> 
+<p>The command to run TMVE with the demo project is fairly simple:</p> 
+<p class="code">python src/tmve.py demo/wiki_project.tmv</p>
+<p>Or, for more information as the script runs, the verbose mode is helpful:</p>
+<p class="code">python src/tmve.py -v demo/wiki_project.tmv</p>
+<p>For the demo project, you will need to be connected to the Internet while TMVE generates the document pages as it must pull content from Wikipedia.  When this is done, you should have a local browser (in the demo directory) like the demo above, but a little smaller.</p> 
+ 
+<hr noshade> 
+ 
+<h3>Making Changes</h3> 
+<h4>adapting to other datasets and other topic model types</h4> 
+<p>Creating a new template will allow you to view your data in an alternative fashion.  To do so, take a look at the BasicBrowser template included in the TMVE source download.</p> 
+<p>To use another dataset, you will need to change the way documents are displayed.  This is currently hard-coded into the <em>BasicBrowser.py</em> file, in the function <font class="code">get_doc_display</font>.</p> 
+<p>To try different topic models, only the database generator needs to be changed.  Depending on how the output differs from LDA-C, the work to do this may be minimal.</p> 
+ 
+<hr noshade> 
+<p class="footer">Allison J. B. Chaney&nbsp;&nbsp;&bull;&nbsp;&nbsp;2010&nbsp;&nbsp;&bull;&nbsp;&nbsp;Princeton University<p> 
+ 
+</p> 
+</body> 
+</html> 

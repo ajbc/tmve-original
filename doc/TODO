@@ -1,0 +1,13 @@
+As with any project, TMVE can still be improved.  Here's a list of some things that are being considered or are in the works.  Feel free to email ajb.chaney@gmail.com if you have any suggestions.
+
+ - expand templates
+ - rewrite rendering of pages to be generated dynamically, possibly using Ruby on Rails
+ - allow for comments at the end of lines in project and template files
+
+Additionally, a list of in-line TODO comments can be found by running the following command in this directory:
+
+    grep -r TODO *
+
+Or, if you downloaded from a repository:
+
+    grep -r  --exclude='*\.svn*' TODO *
