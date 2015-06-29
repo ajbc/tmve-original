@@ -11,7 +11,7 @@ was produced by using the results of running [David Blei's LDA-C](http://www.cs.
 ###### to produce a browser similar to the demo above</h4>
 First, download build [LDA-C](http://www.cs.princeton.edu/~blei/lda-c/) and run it on a dataset.  For the above demo, the command looked something like:
 ```bash
-./lda set 1/50 50 settings.txt wiki/100K/word_count.dat seeded wiki-100k-lda
+./lda est 1/50 50 settings.txt wiki/100K/word_count.dat seeded wiki-100k-lda
 ```
 Next, the LDA data will need to be processed and put into a database; for this purpose, use the database generator provided in the `lib` folder.  Again, for the demo, the command to run the generator would be as follows.
 ```bash
